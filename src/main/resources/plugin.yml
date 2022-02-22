@@ -1,0 +1,8 @@
+name: Copyright
+version: '${project.version}'
+main: net.kunmc.lab.copyright.Copyright
+api-version: 1.16
+prefix: Copyright
+authors: [ Kei, KUNLab ]
+commands:
+  control:
