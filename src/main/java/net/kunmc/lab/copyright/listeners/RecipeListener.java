@@ -27,7 +27,7 @@ public class RecipeListener implements Listener {
             }
         } else {
             Copyright.manager.add(p.getUniqueId(), event.getRecipe().getResult());
-            Utils.a(ChatColor.GOLD + p.getName() + "が" + ChatColor.YELLOW + is.getI18NDisplayName() + ChatColor.RESET + "を作りました。");
+            Utils.a(ChatColor.GOLD + p.getName() + ChatColor.RESET + "が" + ChatColor.YELLOW + is.getI18NDisplayName() + ChatColor.RESET + "を作りました。");
         }
     }
 
