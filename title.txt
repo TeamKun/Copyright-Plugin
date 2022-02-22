@@ -1,0 +1,5 @@
+/title @a times 20 100 20
+/title @a subtitle ["",{"text":"\u4f01\u753b:","color":"aqua"},{"text":"\u4f01\u753b\u9bd6?","color":"dark_green"},{"text":" \u63d0\u4f9b:","color":"aqua"},{"text":"KUN Lab(KeiLogic)","color":"dark_green"}]
+/title @a title ["",{"text":"\u8457\u4f5c\u6a29","bold":true,"color":"gold"},{"text":"\u30d7\u30e9\u30b0\u30a4\u30f3","bold":true}]
+
+https://minecraft.tools/en/title.php?title=%3Cstrong%3E%3Cspan%20style%3D%22color%3A%23FFAA00%22%3E%E8%91%97%E4%BD%9C%E6%A8%A9%3C%2Fspan%3E%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%3C%2Fstrong%3E&subtitle=%3Cspan%20style%3D%22color%3A%2355FFFF%22%3E%E4%BC%81%E7%94%BB%3A%3C%2Fspan%3E%3Cspan%20style%3D%22color%3A%2300AA00%22%3E%E4%BC%81%E7%94%BB%E9%AF%96%3F%3C%2Fspan%3E%20%3Cspan%20style%3D%22color%3A%2355FFFF%22%3E%E6%8F%90%E4%BE%9B%3A%3C%2Fspan%3E%3Cspan%20style%3D%22color%3A%2300AA00%22%3EKUN%20Lab(KeiLogic)%3C%2Fspan%3E&actionbar_mode=0&fadein=1&fadeout=1&duration=5&selector=%40a
