@@ -8,33 +8,42 @@ import java.util.UUID;
 
 public class CraftManager {
 
-    Map<UUID, Material> crafters;
+    Map<Material, UUID> crafters;
+    boolean running;
 
     public CraftManager(){
         this.crafters = new java.util.HashMap<>();
+        running = false;
     }
 
-    public Map<UUID, Material> getCrafters() {
+    public Map<Material, UUID> getCrafters() {
         return crafters;
     }
 
-    public boolean canCraft(UUID uuid, ItemStack is){
-        return canCraft(uuid, is.getType());
+    public void add(UUID uniqueId, ItemStack result) {
+        crafters.put(result.getType(), uniqueId);
     }
 
-    public boolean canCraft(UUID uuid, Material m){
-        return crafters.containsKey(uuid) && crafters.get(uuid) == m;
+    public UUID getCrafter(ItemStack is) {
+        if(is == null) return null;
+        if(is.getType() == Material.AIR) return null;
+        if(!crafters.containsKey(is.getType())) return null;
+        return crafters.get(is.getType());
     }
 
-    public void add(UUID uuid, Material m){
-        crafters.put(uuid, m);
+    public void reset() {
+        this.crafters = new java.util.HashMap<>();
     }
 
-    public void add(UUID uuid, ItemStack m){
-        crafters.put(uuid, m.getType());
+    public void enable() {
+        this.running = true;
     }
 
-    public void revoke(UUID uuid){
-        crafters.remove(uuid);
+    public void disable() {
+        this.running = false;
+    }
+
+    public boolean isRunning() {
+        return running;
     }
 }

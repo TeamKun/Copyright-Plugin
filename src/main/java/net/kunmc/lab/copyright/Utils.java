@@ -23,8 +23,13 @@ public class Utils {
 
     public static List<String> cl(List<String> l, String a) {
         if(a.length() < 1) return s(l);
-        l.removeIf(s -> !s.startsWith(a));
-        return s(l);
+        List<String> r = new java.util.ArrayList<>();
+        for (String s : l) {
+            if (s.startsWith(a)) {
+                r.add(s);
+            }
+        }
+        return s(r);
     }
 
 }
