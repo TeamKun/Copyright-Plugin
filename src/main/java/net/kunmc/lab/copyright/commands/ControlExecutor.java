@@ -72,7 +72,7 @@ public class ControlExecutor implements CommandExecutor, TabCompleter {
     @Override
     public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
         List<String> list = null;
-        if(!sender.isOp()) return Utils.nl;
+        if(!sender.hasPermission("copyright.control")) return Utils.nl;
         if(args.length < 2) {
             list = Utils.cl(Arrays.asList("reset", "enable", "disable", "help", "status"), args[0]);
             return list;
