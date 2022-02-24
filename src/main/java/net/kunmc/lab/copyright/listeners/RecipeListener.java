@@ -23,7 +23,7 @@ public class RecipeListener implements Listener {
             UUID crafter = Copyright.manager.getCrafter(is);
             if(!p.getUniqueId().equals(crafter)) {
                 event.setCancelled(true);
-                p.sendMessage(is.getI18NDisplayName() + "は" + Bukkit.getOfflinePlayer(crafter).getName() + "しか作成することができません。");
+                p.sendMessage(ChatColor.YELLOW + is.getI18NDisplayName() + ChatColor.RESET + "は" + ChatColor.GOLD + Bukkit.getOfflinePlayer(crafter).getName() + ChatColor.RESET + "しか作成することができません。");
             }
         } else {
             Copyright.manager.add(p.getUniqueId(), event.getRecipe().getResult());

@@ -6,3 +6,8 @@ prefix: Copyright
 authors: [ Kei, KUNLab ]
 commands:
   control:
+    permission: copyright.control
+permissions:
+  copyright.control:
+    description: "Allows the user to control the copyright plugin."
+    default: op

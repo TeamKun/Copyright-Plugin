@@ -17,7 +17,7 @@ import java.util.List;
 public class ControlExecutor implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if(!sender.isOp()){
+        if(!sender.hasPermission("copyright.control")){
             sender.sendMessage(ChatColor.RED + "権限がありません。");
             return true;
         }
