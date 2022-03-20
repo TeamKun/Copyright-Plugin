@@ -19,13 +19,16 @@ public enum LanguageHelper {
     private String langName;
     private String fileName;
     private Properties prop;
+    // propertiesファイルを読み込むために使うプラグインフォルダのプラグイン名をここに入力する。
+    // ex. %user.dir% / plugins / %pluginame% / lang / english.properties
+    private final String pluginName = "Copyright";
 
     LanguageHelper(String langName, String fileName) {
         this.fileName = fileName;
         this.langName = langName;
         this.prop = new Properties();
         try {
-            prop.load(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "lang", langName)));
+            prop.load(new FileInputStream(new File(System.getProperty("user.dir") + File.separator + "plugins" + File.separator + pluginName + File.separator + "lang", langName)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -38,8 +41,10 @@ public enum LanguageHelper {
             String key = material.getTranslationKey();
             if (prop.contains(key)) {
                 return prop.getProperty(key);
-            } else {
+            } else if (this == ENGLISH) {
                 return material.name();
+            } else {
+                return LanguageHelper.ENGLISH.byMaterial(material);
             }
         }
     }
