@@ -3,6 +3,9 @@ package net.kunmc.lab.copyright;
 import org.bukkit.Material;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffectType;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -45,6 +48,39 @@ public enum LanguageHelper {
                 return material.name();
             } else {
                 return LanguageHelper.ENGLISH.byMaterial(material);
+            }
+        }
+    }
+
+    public String byEnchantment(Enchantment enchantment) {
+        if (fileName == null) {
+            return enchantment.getName();
+        } else {
+            String key = enchantment.getKey().getKey();
+            if (prop.contains(key)) {
+                return prop.getProperty(key);
+            } else if (this == ENGLISH) {
+                return enchantment.getName();
+            } else {
+                return LanguageHelper.ENGLISH.byEnchantment(enchantment);
+            }
+        }
+    }
+
+    public String byItemStack(ItemStack is) {
+        if (fileName == null) {
+            return is.getI18NDisplayName();
+        } else {
+            if (is.getItemMeta().hasDisplayName()) {
+                return is.getI18NDisplayName();
+            }
+            String key = is.getTranslationKey();
+            if (prop.contains(key)) {
+                return prop.getProperty(key);
+            } else if (this == ENGLISH) {
+                return is.getI18NDisplayName();
+            } else {
+                return LanguageHelper.ENGLISH.byItemStack(is);
             }
         }
     }
