@@ -14,6 +14,7 @@ public final class Copyright extends JavaPlugin {
         manager = new CraftManager();
         this.getServer().getPluginManager().registerEvents(new RecipeListener(), this);
         this.getServer().getPluginCommand("control").setExecutor(new ControlExecutor());
+
     }
 
     @Override

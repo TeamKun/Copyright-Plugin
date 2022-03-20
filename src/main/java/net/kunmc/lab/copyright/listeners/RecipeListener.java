@@ -1,6 +1,7 @@
 package net.kunmc.lab.copyright.listeners;
 
 import net.kunmc.lab.copyright.Copyright;
+import net.kunmc.lab.copyright.LanguageHelper;
 import net.kunmc.lab.copyright.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,11 +24,11 @@ public class RecipeListener implements Listener {
             UUID crafter = Copyright.manager.getCrafter(is);
             if(!p.getUniqueId().equals(crafter)) {
                 event.setCancelled(true);
-                p.sendMessage(ChatColor.YELLOW + is.getI18NDisplayName() + ChatColor.RESET + "は" + ChatColor.GOLD + Bukkit.getOfflinePlayer(crafter).getName() + ChatColor.RESET + "しか作成することができません。");
+                p.sendMessage(ChatColor.YELLOW + LanguageHelper.JAPANESE.byMaterial(is.getType()) + ChatColor.RESET + "は" + ChatColor.GOLD + Bukkit.getOfflinePlayer(crafter).getName() + ChatColor.RESET + "しか作成することができません。");
             }
         } else {
             Copyright.manager.add(p.getUniqueId(), event.getRecipe().getResult());
-            Utils.a(ChatColor.GOLD + p.getName() + ChatColor.RESET + "が" + ChatColor.YELLOW + is.getI18NDisplayName() + ChatColor.RESET + "を作りました。");
+            Utils.a(ChatColor.GOLD + p.getName() + ChatColor.RESET + "が" + ChatColor.YELLOW + LanguageHelper.JAPANESE.byMaterial(is.getType()) + ChatColor.RESET + "を作りました。");
         }
     }
 
